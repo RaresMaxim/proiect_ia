@@ -18,11 +18,14 @@ def main():
 
     while not stare.verificareFinal():
         print("\n--- Tabla curentă ---")
-        stare.afisareJoc()
+        #stare.afisareJoc()
 
         if stare.playerCurent == 1:  # Jucătorul uman
             zar = stare.invarteZar()
+            
             while zar:
+                if  not zar ==[]:
+                    stare.afisareJoc()
                 print(f"Este randul tau. Zaruri: {zar}")
                 mutari = stare.getMutariLegale(zar)
 
@@ -74,7 +77,10 @@ def main():
 
         else:  # Monte Carlo Tree Search AI
             zar = stare.invarteZar()
+            
             while zar:
+                if  not zar ==[]:
+                    stare.afisareJoc()
                 print(f"Monte Carlo Tree Search calculează mutarea  Zaruri: {zar}")
                 miscareBuna, _ = mcts(stare.clone(), zar, simulari)
 
